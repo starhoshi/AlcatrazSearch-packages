@@ -2,21 +2,17 @@ require 'bundler/setup'
 require 'httparty'
 require 'json'
 require 'hashie'
+require './gmail.rb'
 
-response = HTTParty.get('https://raw.githubusercontent.com/alcatraz/alcatraz-packages/master/packages.json')
-json = JSON.parse(response)
-mash = Hashie::Mash.new(json)
-p mash.packages
+request = HTTParty.get 'https://raw.githubusercontent.com/alcatraz/alcatraz-packages/master/packages.json'; 1
 
-# case response.code
-#   when 200
-#     p response
-#     puts "All good!"
-#   when 404
-#     puts "O noes not found!"
-#   when 500...600
-#     puts "ZOMG ERROR #{response.code}"
-# end
-#
-#
+begin
+  request.inspect
+  json = JSON.parse(request.parsed_response)
+  mash = Hashie::Mash.new(json)
+  p mash.packages
+rescue => e
+  p e.message
+  Gmail.new.send("AlcatrazSearch-package Error!!!", e.message)
+end
 

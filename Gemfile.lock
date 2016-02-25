@@ -6,6 +6,9 @@ GEM
       json (~> 1.8)
       multi_xml (>= 0.5.2)
     json (1.8.3)
+    mail (2.6.3)
+      mime-types (>= 1.16, < 3)
+    mime-types (2.99.1)
     multi_xml (0.5.5)
 
 PLATFORMS
@@ -14,6 +17,7 @@ PLATFORMS
 DEPENDENCIES
   hashie
   httparty
+  mail
 
 BUNDLED WITH
    1.11.2
