@@ -3,21 +3,21 @@ require 'hashie'
 require 'json'
 require './baseCoercableHash.rb'
 
-class Alcatraz < BaseCoercableHash
+class AlcatrazSearch < BaseCoercableHash
   coerce_key :description, String
   coerce_key :url, String
   coerce_key :name, String
   coerce_key :screenshot, String
 end
 
-class Packages < BaseCoercableHash
-  coerce_key :plugins, Array[Alcatraz]
-  coerce_key :color_schemes, Array[Alcatraz]
-  coerce_key :project_templates, Array[Alcatraz]
-  coerce_key :file_templates, Array[Alcatraz]
+class GithubRepository < BaseCoercableHash
+  coerce_key :plugins, Array[AlcatrazSearch]
+  coerce_key :color_schemes, Array[AlcatrazSearch]
+  coerce_key :project_templates, Array[AlcatrazSearch]
+  coerce_key :file_templates, Array[AlcatrazSearch]
 end
 
-class AlcatrazPackages
+class AlcatrazSearchPackages
   def create(json)
     packages = json["packages"]
     Packages.new(
