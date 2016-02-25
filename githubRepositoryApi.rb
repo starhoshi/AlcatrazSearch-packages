@@ -2,6 +2,7 @@ require 'bundler/setup'
 require 'hashie'
 require 'json'
 require 'httparty'
+require 'octokit'
 
 class GitHubRepositoryApi
   def create_repository_path
