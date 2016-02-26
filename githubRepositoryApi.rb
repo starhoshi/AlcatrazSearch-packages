@@ -8,7 +8,12 @@ require './alcatrazPackages.rb'
 require './alcatrazSearchPackages.rb'
 
 class GitHubRepositoryApi
-  def is_git_hub(url)
+  def setup_octokit
+    config = YAML.load_file("settings.yml")
+    Octokit::Client.new access_token: config["github_token"]
+  end
+
+  def is_github(url)
     url.include?("github")
   end
 
@@ -21,26 +26,16 @@ class GitHubRepositoryApi
   end
 
   def fetch_repository(packages)
+    client = setup_octokit
     packages.each do |package|
       alcatraz_search = AlcatrazSearch.new
-      if is_git_hub(package["url"])
+      if is_github(package["url"])
         path = create_repository_path(package["url"])
+        # p package["url"]
+        p client.repository("#{path[:owner]}/#{path[:repo]}")
       else
-        p "not github"
+        p " not github "
       end
-      # puts package["description"]
-      # puts package["screenshot"]
-      # request = HTTParty.get 'aa'; 1
-      #
-      # begin
-      #   request.inspect
-      #   json = JSON.parse(request.parsed_response)
-      #   packages = AlcatrazPackages.new.create(json)
-      #   GitHubRepositoryApi.new.start(packages)
-      # rescue => e
-      #   p e.message
-      #   # Gmail.new.send("AlcatrazSearch-package Error!!!", e.message)
-      # end
     end
   end
 
