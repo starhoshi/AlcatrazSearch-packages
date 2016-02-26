@@ -8,9 +8,10 @@ class AlcatrazSearch < BaseCoercableHash
   coerce_key :url, String
   coerce_key :name, String
   coerce_key :screenshot, String
+  coerce_key :github, String
 end
 
-class GithubRepository < BaseCoercableHash
+class GitHubRepository < BaseCoercableHash
   coerce_key :plugins, Array[AlcatrazSearch]
   coerce_key :color_schemes, Array[AlcatrazSearch]
   coerce_key :project_templates, Array[AlcatrazSearch]

@@ -3,16 +3,31 @@ require 'hashie'
 require 'json'
 require 'httparty'
 require 'octokit'
+require 'uri'
+require './alcatrazPackages.rb'
+require './alcatrazSearchPackages.rb'
 
 class GitHubRepositoryApi
-  def create_repository_path
+  def is_git_hub(url)
+    url.include?("github")
+  end
 
+  def create_repository_path(url)
+    uri = URI.parse(url)
+    path = uri.path.split("/")
+    owner = path[1]
+    repo = path[2].gsub(".git", "")
+    {:owner => owner, :repo => repo}
   end
 
   def fetch_repository(packages)
     packages.each do |package|
-      # puts package["name"]
-      puts package["url"]
+      alcatraz_search = AlcatrazSearch.new
+      if is_git_hub(package["url"])
+        path = create_repository_path(package["url"])
+      else
+        p "not github"
+      end
       # puts package["description"]
       # puts package["screenshot"]
       # request = HTTParty.get 'aa'; 1
