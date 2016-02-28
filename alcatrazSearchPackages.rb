@@ -11,7 +11,7 @@ class AlcatrazSearch < BaseCoercableHash
   coerce_key :open_issues_count, Integer
   coerce_key :stargazers_count, Integer
   coerce_key :forks_count, Integer
-  coerce_key :watchers_count, Integer
+  coerce_key :subscribers_count, Integer
   coerce_key :updated_at, String
   coerce_key :created_at, String
   coerce_key :pushed_at, String
@@ -31,7 +31,7 @@ class AlcatrazSearchPackagesCreator
     alcatraz_search[:open_issues_count] = nil
     alcatraz_search[:stargazers_count] = nil
     alcatraz_search[:forks_count] = nil
-    alcatraz_search[:watchers_count] = nil
+    alcatraz_search[:subscribers_count] = nil
     alcatraz_search[:updated_at] = nil
     alcatraz_search[:created_at] = nil
     alcatraz_search[:pushed_at] = nil
@@ -51,7 +51,7 @@ class AlcatrazSearchPackagesCreator
     alcatraz_search[:open_issues_count] = repository_json["open_issues_count"]
     alcatraz_search[:stargazers_count] = repository_json["stargazers_count"]
     alcatraz_search[:forks_count] = repository_json["forks_count"]
-    alcatraz_search[:watchers_count] = repository_json["watchers_count"]
+    alcatraz_search[:subscribers_count] = repository_json["subscribers_count"]
     alcatraz_search[:updated_at] = repository_json["updated_at"]
     alcatraz_search[:created_at] = repository_json["created_at"]
     alcatraz_search[:pushed_at] = repository_json["pushed_at"]
