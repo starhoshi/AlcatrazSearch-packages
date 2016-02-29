@@ -4,9 +4,9 @@ require 'json'
 require 'hashie'
 require 'fileutils'
 require 'time'
-require './gmail.rb'
-require './gitHubRepositoryApi.rb'
-require './alcatrazPackages.rb'
+require_relative './gmail.rb'
+require_relative './gitHubRepositoryApi.rb'
+require_relative './alcatrazPackages.rb'
 
 
 def save_json(json)

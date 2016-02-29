@@ -1,7 +1,7 @@
 require 'bundler/setup'
 require 'hashie'
 require 'json'
-require './baseCoercableHash.rb'
+require_relative './baseCoercableHash.rb'
 
 class Alcatraz < BaseCoercableHash
   coerce_key :description, String

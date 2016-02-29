@@ -5,9 +5,9 @@ require 'httparty'
 require 'octokit'
 require 'uri'
 require 'time'
-require './alcatrazPackages.rb'
-require './alcatrazSearchPackages.rb'
-require './gmail.rb'
+require_relative './alcatrazPackages.rb'
+require_relative './alcatrazSearchPackages.rb'
+require_relative './gmail.rb'
 
 class GitHubRepositoryApi
   def initialize
