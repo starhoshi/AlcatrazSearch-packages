@@ -67,11 +67,12 @@ class GitHubRepositoryApi
     color_schemes = fetch_repository(alcatraz_packages[:color_schemes])
     project_templates = fetch_repository(alcatraz_packages[:project_templates])
     file_templates = fetch_repository(alcatraz_packages[:file_templates])
+    project_templates.concat(file_templates)
     AlcatrazSearchPackages.new(
         created_at: Time.now.utc,
         plugins: plugins,
         color_schemes: color_schemes,
-        project_templates: project_templates,
-        file_templates: file_templates)
+        templates: project_templates
+    )
   end
 end

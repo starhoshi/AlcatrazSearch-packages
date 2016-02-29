@@ -21,8 +21,7 @@ class AlcatrazSearchPackages < BaseCoercableHash
   coerce_key :created_at, String
   coerce_key :plugins, Array[AlcatrazSearch]
   coerce_key :color_schemes, Array[AlcatrazSearch]
-  coerce_key :project_templates, Array[AlcatrazSearch]
-  coerce_key :file_templates, Array[AlcatrazSearch]
+  coerce_key :templates, Array[AlcatrazSearch]
 end
 
 class AlcatrazSearchPackagesCreator
