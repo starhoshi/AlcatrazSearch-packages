@@ -56,6 +56,7 @@ class GitHubRepositoryApi
       else
         repository = AlcatrazSearchPackagesCreator.new.set_alcatraz_search(package)
       end
+      p repository
       repository_list.push(repository)
     end
     repository_list
