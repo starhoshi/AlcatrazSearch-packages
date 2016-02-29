@@ -11,8 +11,7 @@ require_relative './gmail.rb'
 
 class GitHubRepositoryApi
   def initialize
-    config = YAML.load_file("settings.yml")
-    @client = Octokit::Client.new access_token: config["github_token"]
+    @client = Octokit::Client.new access_token: ENV['GH_TOKEN']
   end
 
   def is_github(url)

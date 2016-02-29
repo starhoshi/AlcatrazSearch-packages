@@ -1,13 +1,11 @@
 require 'bundler/setup'
 require 'mail'
-require 'yaml'
 
 class Gmail
   def send(subject, message)
-    config = YAML.load_file("settings.yml")
     mail = Mail.new do
-      from config["mail"]["address"]
-      to config["mail"]["address"]
+      from ENV['EMAIL']
+      to ENV['PASSWORD']
       subject subject
       body message
     end
@@ -15,8 +13,8 @@ class Gmail
     mail.delivery_method :smtp, {address: 'smtp.gmail.com',
                                  port: 587,
                                  domain: 'smtp.gimal.com',
-                                 user_name: config["mail"]["address"],
-                                 password: config["mail"]["password"],
+                                 user_name: ENV['EMAIL'],
+                                 password: ENV['PASSWORD']
     }
     mail.deliver!
   end
