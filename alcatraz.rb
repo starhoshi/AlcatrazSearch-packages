@@ -10,7 +10,7 @@ require_relative './alcatrazPackages.rb'
 
 
 def save_json(json)
-  file_path = "./download/alcatraz.json"
+  file_path = "./tmp/alcatraz.json"
   if File.exist?(file_path)
     FileUtils.mv(file_path, "#{file_path}.#{Time.now.to_i}")
   end
