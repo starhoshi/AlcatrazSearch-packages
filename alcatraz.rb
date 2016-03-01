@@ -11,7 +11,7 @@ require_relative './alcatrazPackages.rb'
 
 
 def save_json(json)
-  file_path = "/alcatraz.json"
+  file_path = "/public/alcatraz.json"
   client = DropboxClient.new(ENV['DROPBOX_TOKEN'])
   p client.put_file(file_path, json, true)
 end
