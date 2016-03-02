@@ -25,7 +25,7 @@ begin
   alcatraz_search_packages = GitHubRepositoryApi.new.start(packages)
   p save_json(alcatraz_search_packages.to_json)
 rescue => e
-  # Gmail.new.send("AlcatrazSearch-package Error!!!", e.message)
+  Gmail.new.send("AlcatrazSearch-package Error!!!", e.message)
   p e
 end
 
