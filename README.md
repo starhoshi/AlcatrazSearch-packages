@@ -26,7 +26,6 @@ heroku run "ruby alcatraz.rb"
 heroku config:add EMAIL="YOUR_GMAIL_ADDRESS"
 heroku config:add PASSWORD="YOUR_GMAIL_PASSWORD"
 heroku config:add GH_TOKEN="YOUR_GITHUB_TOKEN"
-heroku config:add GH_TOKEN="YOUR_GITHUB_TOKEN"
 heroku config:add DROPBOX_TOKEN="YOUR_FULL_DROPBOX_PERMISSION_TOKEN"
 heroku run "ruby alcatraz.rb"
 ```
