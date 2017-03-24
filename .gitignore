@@ -38,4 +38,3 @@ build/
 ## custom
 .idea/
 settings.yml
-/data/alcatraz.json.*
